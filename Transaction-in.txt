@@ -1,0 +1,79 @@
+# Lines starting with # are comments.
+# Comment lines and blank lines should not be “processed”.
+# Any data in this format should be able to be processed and parsed, in any order, though the order of lines in the file implies what information exists when subsequent lines are processed.
+# No data type errors will be included in my test file.
+# HOWEVER, logical errors (dependency, etc.) *will* be included, and you will need to be able to handle such errors “gracefully”.
+
+# General format of lines in Trx File:
+# <TrxDate>; <TrxTime>; <TrxType>; <TrxAction>; [<TrxID>; <TrxLineID>]; <DataField>…>
+# Note that the lines are semicolon-delimited, *not* comma-delimited, that the angle brackets are not part of the actual data, and that square brackets indicate optional information.
+# <TrxType> and <TrxAction> may be any form of case: ALL UPPER, all lower, Or Any type of miXeD case…
+
+# Format of “Create Customer” lines in Trx File:
+# <TrxDate>; <TrxTime>; Customer; Create; <CustomerID>; <CustomerName>; <CustomerBDay>
+
+20161104; 0800; Customer; Create; C1; Sam Smith; 19980815
+20161104; 0800; Customer; Create; C2; Sally Jones; 20000101
+20161104; 0800; Customer; Create; C3; Tim Alfonso; 20021225
+20161104; 0800; Customer; Create; C4; Teresa Willaby; 20021201
+
+# Format of “Open Account” lines in Trx File:
+# <TrxDate>; <TrxTime>; Account; Open; <TrxID>; <TrxLineID>; <AccountID>; <AccountName>; <CustomerID>; <DateOpened>; [<InitialAmount>;] <InterestRate>
+# <InitialAmount> is included for Checking and Loan types of accounts, but not for CreditCards.
+# <InitialAmount> is non-negative (>=0) for Checking and Loan types of accounts; it is negative (<0) for CreditCard accounts.
+# <CustomerID> indicates the “first” owner on the account.  Additional owners may be added through the “Account AddOwner” process (see below).
+
+20161104; 0900; Account; Open; Checking; T1; TL1; A1; Sam’s Checking; C1; 1000; 1.5
+20161104; 0900; Account; Open; CreditCard; T2; TL2; A2; Sam’s Credit Card; C1; 20
+20161104; 0900; Account; Open; Loan; T3; TL3; A3; Sam’s House Loan; C1; 100000; 3
+20161104; 0900; Account; Open; Checking; T4; TL4; A4; Sam’s 2nd Checking; C1; 500; 0
+20161104; 0900; Account; Open; Checking; T5; TL5; A5; Sally’s Checking; C2; 1500; .5
+20161104; 0900; Account; Open; Checking; T6; TL6; A6; Tim’s Checking; C3; 2000; .1
+20161104; 0900; Account; Open; Checking; T7; TL7; A7; Teresa’s Checking; C4; 100; 2
+
+# Format of “Account; AddOwner” lines in Trx File:
+# <TrxDate>; <TrxTime>; Account; AddOwner; <AccountID>; <CustomerID>
+
+20161104; 0930; Account; AddOwner; A1; C2
+20161104; 0930; Account; AddOwner; A2; C2
+20161104; 0930; Account; AddOwner; A3; C2
+
+# Format of “Single TrxLine” lines in Trx File:
+# <TrxDate>; <TrxTime>; Customer; <TrxAction>; <TrxID>; <TrxLineID>; <CustomerID>; <AccountID>; <Amount>
+
+20161104; 1000; Customer; MakeDeposit; T8; TL8; C1; A1; 500
+20161104; 1000; Customer; MakeWithdrawal; T9; TL9; C1; A1; 250
+20161104; 1000; Customer; UseDebitCard; T10; TL10; C1; A1; 25
+20161104; 1000; Customer; ChargePurchase; T11; TL11; C1; A2; 75
+
+# Format of “Double TrxLine” lines in Trx File:
+# <TrxDate>; <TrxTime>; Customer; <TrxAction>; <TrxID>; <FromTrxLnID>; <ToTrxLnID>; <CustomerID>; <FromAccountID>; <ToAccountID>; <Amount>
+
+20161104; 1100; Customer; TransferFunds; T12; TL12; T13; C1; A4; A1; 150
+20161104; 1100; Customer; MakePayment; T13; TL14; T15; C1; A1; A2; 50
+20161104; 1100; Customer; MakePayment; T14; TL16; TL17; C1; A1; A3; 1500
+
+# Format of “Accrue Interest” lines in Trx File:
+# <TrxDate>; <TrxTime>; Account; AccrueInterestIndividual; <TrxID>; <TrxLineID>; <AccountID>
+# OR
+# <TrxDate>; <TrxTime>; Account; AccrueInterestAll; <TrxIDPrefix>; <TrxIDStart>; <TrxLnIDPrefix>; <TrxLineIDStart>; <AccountID>
+
+20161104; 1200; Account; AccrueInterestIndividual; T15; TL18; A1
+20161104; 1200; Account; AccrueInterestIndividual; T16; TL19; A2
+20161104; 1200; Account; AccrueInterestIndividual; T17; TL20; A3
+20161104; 1200; Account; AccrueInterestAll; T; 18; TL; 21
+
+# Format of “Account; UpdateName” lines in Trx File:
+# <TrxDate>; <TrxTime>; Account; UpdateName; <AccountID>; <AccountName>
+
+20161104; 1300; Account; UpdateName; A1; Samuel Smith’s Checking
+
+# Format of “Account; Close” lines in Trx File:
+# <TrxDate>; <TrxTime>; Account; Close; <AccountID>
+
+20161104; 1300; Account; Close; A7
+
+# Format of “Account; UpdateInterestRate” lines in Trx File:
+# <TrxDate>; <TrxTime>; Account; UpdateInterestRate; <AccountID>; <InterestRate>
+
+20161104; 1300; Account; UpdateInterestRate; A1; 2.0

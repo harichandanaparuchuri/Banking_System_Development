@@ -1,0 +1,85 @@
+20161207; 0211; Customer; Create; C 1; Sam Smith; 8/15/1998 12:00:00 AM
+20161207; 0211; Customer; Create; C 2; Sally Jones; 1/1/2000 12:00:00 AM
+20161207; 0211; Customer; Create; C 3; Tim Alfonso; 12/25/2002 12:00:00 AM
+20161207; 0211; Customer; Create; C 4; Teresa Willaby; 12/1/2002 12:00:00 AM
+20161104; 0900; Account; Open; Checking; T1; TL1; A1; Sam's Checking; C 1; 1000; 1.5
+20161104; 0900; Account; Open; CreditCard; T2; TL2; A2; Sam's Credit Card; C 1; 20
+20161104; 0900; Account; Open; Loan; T3; TL3; A3; Sam's House Loan; C 1; 100000; 3
+20161104; 0900; Account; Open; Checking; T4; TL4; A4; Sam's 2nd Checking; C 1; 500; 0
+20161104; 0900; Account; Open; Checking; T5; TL5; A5; Sally's Checking; C 2; 1500; .5
+20161104; 0900; Account; Open; Checking; T6; TL6; A6; Tim's Checking; C 3; 2000; .1
+20161104; 0900; Account; Open; Checking; T7; TL7; A7; Teresa's Checking; C 4; 100; 2
+
+20161207; 0211; Customer; MakeDeposit; T8; TL8; C 1; A1; 2500
+
+#20161207; 0211; Customer; UseDebitCard; T10; TL10; C 1; A1; 2225
+#20161207; 0211; Customer; ChargePurchase; T11; TL11; C 1; A2; -75
+#20161207; 0211; Customer; TransferFunds; T12; TL12; C 1; A4; A1; 850
+#20161207; 0211; Customer; MakePayment; T13; TL14; C 1; A1; A2; 2325
+#20161207; 0211; Customer; MakePayment; T14; TL16; C 1; A1; A3; 825
+#20161207; 0211; Account; AccrueInterestIndividual; T15; TL18; A1
+#20161207; 0211; Account; AccrueInterestIndividual; T16; TL19; A2
+#20161207; 0211; Account; AccrueInterestIndividual; T17; TL20; A3
+#20161207; 0211; Account; AccrueInterestAll; T; 18; TL; 21
+20161207; 0211; Customer; Create; C 1; Sam Smith; 8/15/1998 12:00:00 AM
+20161207; 0211; Customer; Create; C 2; Sally Jones; 1/1/2000 12:00:00 AM
+20161207; 0211; Customer; Create; C 3; Tim Alfonso; 12/25/2002 12:00:00 AM
+20161207; 0211; Customer; Create; C 4; Teresa Willaby; 12/1/2002 12:00:00 AM
+20161104; 0900; Account; Open; Checking; T1; TL1; A1; Sam's Checking; C 1; 1000; 1.5
+20161104; 0900; Account; Open; CreditCard; T2; TL2; A2; Sam's Credit Card; C 1; 20
+20161104; 0900; Account; Open; Loan; T3; TL3; A3; Sam's House Loan; C 1; 100000; 3
+20161104; 0900; Account; Open; Checking; T4; TL4; A4; Sam's 2nd Checking; C 1; 500; 0
+20161104; 0900; Account; Open; Checking; T5; TL5; A5; Sally's Checking; C 2; 1500; .5
+20161104; 0900; Account; Open; Checking; T6; TL6; A6; Tim's Checking; C 3; 2000; .1
+20161104; 0900; Account; Open; Checking; T7; TL7; A7; Teresa's Checking; C 4; 100; 2
+
+20161207; 0211; Customer; MakeDeposit; T8; TL8; C 1; A1; 2500
+
+
+
+20161207; 0211; Customer; Create; C 1; Sam Smith; 8/15/1998 12:00:00 AM
+20161207; 0211; Customer; Create; C 2; Sally Jones; 1/1/2000 12:00:00 AM
+20161207; 0211; Customer; Create; C 3; Tim Alfonso; 12/25/2002 12:00:00 AM
+20161207; 0211; Customer; Create; C 4; Teresa Willaby; 12/1/2002 12:00:00 AM
+20161104; 0900; Account; Open; Checking; T1; TL1; A1; Sam's Checking; C 1; 1000; 1.5
+20161104; 0900; Account; Open; CreditCard; T2; TL2; A2; Sam's Credit Card; C 1; 20
+20161104; 0900; Account; Open; Loan; T3; TL3; A3; Sam's House Loan; C 1; 100000; 3
+20161104; 0900; Account; Open; Checking; T4; TL4; A4; Sam's 2nd Checking; C 1; 500; 0
+20161104; 0900; Account; Open; Checking; T5; TL5; A5; Sally's Checking; C 2; 1500; .5
+20161104; 0900; Account; Open; Checking; T6; TL6; A6; Tim's Checking; C 3; 2000; .1
+20161104; 0900; Account; Open; Checking; T7; TL7; A7; Teresa's Checking; C 4; 100; 2
+
+20161207; 0211; Customer; MakeDeposit; T8; TL8; C 1; A1; 2500
+
+
+
+20161208; 1202; Customer; Create; C 1; Sam Smith; 8/15/1998 12:00:00 AM
+20161208; 1202; Customer; Create; C 2; Sally Jones; 1/1/2000 12:00:00 AM
+20161208; 1202; Customer; Create; C 3; Tim Alfonso; 12/25/2002 12:00:00 AM
+20161208; 1202; Customer; Create; C 4; Teresa Willaby; 12/1/2002 12:00:00 AM
+20161208; 1202; Account; Open; Checking; T1; TL1; A1; Sam's Checking; C 1; 2000; 1.5
+20161208; 1202; Account; Open; CreditCard; T2; TL2; A2; Sam's Credit Card; C 1; 0; 20
+20161208; 1202; Account; Open; Loan; T3; TL3; A3; Sam's House Loan; C 1; -100000; 3
+20161208; 1202; Account; Open; Checking; T4; TL4; A4; Sam's 2nd Checking; C 1; 1000; 0
+20161208; 1202; Account; Open; Checking; T5; TL5; A5; Sally's Checking; C 2; 3000; 0.5
+20161208; 1202; Account; Open; Checking; T6; TL6; A6; Tim's Checking; C 3; 4000; 0.1
+20161208; 1202; Account; Open; Checking; T7; TL7; A7; Teresa's Checking; C 4; 200; 2
+20161208; 1202; AddOwner: A1; C 2
+20161208; 1202; UpdateName; A1; Sam's modofied Account
+20161208; 1202; UpdateInterestRate: A1; 1
+20161208; 1202; Close: A1
+20161208; 1202; Customer; MakeDeposit; T8; TL8; C 1; A1; 2500
+20161208; 1202; Customer; MakeWithdrawal; T9; TL9; C 1; A1; 2250
+20161208; 1202; Customer; UseDebitCard; T10; TL10; C 1; A1; 2225
+20161208; 1202; Customer; ChargePurchase; T11; TL11; C 1; A2; -75
+20161208; 1202; Customer; TransferFunds; T12; TL12; C 1; A4; A1; 850
+20161208; 1202; Customer; MakePayment; T13; TL14; C 1; A1; A2; 2325
+20161208; 1202; Customer; MakePayment; T14; TL16; C 1; A1; A3; 825
+20161208; 1202; Account; AccrueInterestIndividual; T15; TL18; A1
+20161208; 1202; Account; AccrueInterestIndividual; T16; TL19; A2
+20161208; 1202; Account; AccrueInterestIndividual; T17; TL20; A3
+20161208; 1202; Account; AccrueInterestAll; T; 18; TL; 21
+
+
+
+
